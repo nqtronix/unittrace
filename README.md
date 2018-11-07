@@ -23,7 +23,7 @@
 
 
 ## Introduction
-Testing is an important part of writing code, especially if the code is meant to be re-used for other projects. On small MCUs testing can be quite tricky as the memory is limited and errors can't be easily reported with `printf()` or similiar.
+Testing is an important part of writing code, especially if the code is meant to be re-used for other projects. On small MCUs testing can be quite tricky as the memory is limited and errors can't be easily reported with `printf()` or similar.
 
 **unittrace** provides basic testing functionality and is designed with the limits of MCUs in mind. It runs directly on the hardware and thus can catch errors other test software can't. Fetch the results through a debugger or with a function.
 
@@ -31,7 +31,7 @@ Testing is an important part of writing code, especially if the code is meant to
 
 ## Key Features
  
- - **lightweight:** absulute minimum Flash & RAM usage
+ - **lightweight:** absolute minimum Flash & RAM usage
  - **runtime test:** catches both software and hardware errors
  - **static memory**: no malloc overhead
  
@@ -75,7 +75,7 @@ This section is written especially for everyone who is **not familiar** with the
  - **An AVR8 ISP/JTAG programmer [optional]**<br>
    To program AVR8 MCUs I use the [AVR Dragon][tool-avr-dragon]. It can be also used as a debugger and is available within Atmel Studio by default.
 
-### Step 2: Download fifofast
+### Step 2: Download unittrace
  - Clone this repository or hit [Download][git-download] and extract the .zip file.
 
 ### Step 3: Browse the project
@@ -93,7 +93,7 @@ This section is written especially for everyone who is **not familiar** with the
    Press `CTRL + F5` or select "Debug -> Start Debugging and Break" from the menu
  
  - **Place breakpoints:**<br>
-   Left-Click on the lightgrey area left of the code to place or remove a breakpoint. Select lines with the comment "easy breakpoint".
+   Left-Click on the light grey area left of the code to place or remove a breakpoint. Select lines with the comment "easy breakpoint".
    
  - **View variable values:**<br>
    When the code is paused, hover over any variable to display its value. Alternately you can "Right-Click -> Watch" to display the value in the "watch window".
@@ -114,14 +114,14 @@ This section is written especially for everyone who is **not familiar** with the
 
 ### Interpreting the Data
 
-The results of the test can be accessed at any time, even if the test is not fully complete. The global variable `unittrace_count` contains the number of failed asserts, the array `unittrace_array` pointers to the location of the failed intructions in the flash memory. Both variables can be read at tuntime or in the debugger with rightclick -> watch.
+The results of the test can be accessed at any time, even if the test is not fully complete. The global variable `unittrace_count` contains the number of failed asserts, the array `unittrace_array` contains pointers to the location of the failed instruction in the flash memory. Both variables can be read at runtime or in the debugger with right-click -> watch.
 
 However due to limitations of the build-in debugger there is no direct way to jump to the corresponding line of code. Instead you have to:
 
 1. Start the debug session
-2. Rightclick on the sourcecode -> open dissassembly
+2. Right-click on the source code -> open disassembly
 3. Scroll and search the correct line
-4. Rightclick on the line -> Go to source code
+4. Right-click on the line -> Go to source code
 
 This section will be updated, if I figure out a better way.
 
@@ -129,7 +129,7 @@ This section will be updated, if I figure out a better way.
 
 ### API
 
-To keep the documentation up-to-date with the least hassle, all configuration options, functions and their arguments are explained in a comment right infront of the declaration. See `unittrace.h` for more information. This section will be updated as soon as this project hits version 1.0.0.
+To keep the documentation up-to-date with the least hassle, all configuration options, functions and their arguments are explained in a comment right in front of the declaration. See `unittrace.h` for more information. This section will be updated as soon as this project hits version 1.0.0.
 
 <br>
 
@@ -142,7 +142,7 @@ I possibly should note that I've never used any "professional" unit testing libr
 
 ### Development History
 
-I didn't want to use `printf` or any uart equivalent, but the debugger instead. This is not as easy as it seems. Here are the ideas I've tried:
+I didn't want to use `printf` or any UART equivalent, but the debugger instead. This is not as easy as it seems. Here are the ideas I've tried:
 
 <br>
 
@@ -178,7 +178,7 @@ The debugger can't access the data of a FLASH pointer address, if the address is
 Instead of generating a list of human readable strings, store the physical location of the assert macro in a SRAM array. The location in the program memory is a 16 bit pointer, so the amount of SRAM required is pretty low. Also this solution requires almost no flash memory, except the few instructions to per assert.
 
 Downside:<br>
-Although it is easy to get the value of the pointer in the array, you can not jump to the corresponding location in the C source code. See section [Interpreting the Data](#interpreting-the-data) for mor details.
+Although it is easy to get the value of the pointer in the array, you can not jump to the corresponding location in the C source code. See section [Interpreting the Data](#interpreting-the-data) for more details.
 
 As of now idea 4 is the only one that works, so it is the implemented solution. Please [tell me](#contribute) if you know a more straightforward solution.
 
@@ -205,7 +205,7 @@ There is no CONTRIBUTING.md yet, sorry. Contributions will inherit the [license]
 **This project is currently classified as** <a href="https://github.com/nqtronix/git-template/blob/master/badges.md#project-status"><img src="https://img.shields.io/badge/status-maintained-green.svg" alt="status: maintained"></a><br>
 _The developers intend to keep the code in working condition by updating dependencies, fixing bugs and solving issues._
 
-As my testing needs increase I will likely add the functionallity I need.
+As my testing needs increase I will likely add the functionality I need.
 
 <br>
 
