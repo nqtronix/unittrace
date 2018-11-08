@@ -237,7 +237,7 @@ If you haven't done so already, please check out [Get Help](#get-help) for the f
 
 ### Related Projects
 
- - none (yet)
+ - [**fifofast**][git-repo-fifofast] - _A fast, generic fifo for MCUs._
  
 Want yours to be listed here, too? Create a merge request or [**get in touch**](#get-help).
 
@@ -265,6 +265,7 @@ The MIT license was chosen to give you the freedom to use this project in any wa
 [git-download]:https://github.com/nqtronix/unittrace/archive/master.zip
 
 [git-repo-git-template]:https://github.com/nqtronix/git-template
+[git-repo-fifofast]:https://github.com/nqtronix/fifofast
 
 [semver.org]:semver.org
 
